@@ -1,0 +1,18 @@
+
+$color-principal: cadetblue;
+
+.btn-success {
+    background: green;
+}
+
+@mixin boton($color-principal) {
+    background: rgb(75, 75, 240);
+    color: $color-principal;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+@mixin boton2($color-principal)  {
+    @extend .btn-success;    
+    color: white;
+}

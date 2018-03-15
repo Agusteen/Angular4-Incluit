@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { AutosModule } from './autos/autos.module';
+import { AutoRegisterComponent } from './autos/auto-register/auto-register.component';
 
 
 @NgModule({
@@ -10,7 +12,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AutosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

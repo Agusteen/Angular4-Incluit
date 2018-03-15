@@ -1,0 +1,13 @@
+@import './src/variables';
+
+.auto-list {
+    background: $color-principal;
+
+    .boton-accion {
+        @include boton($color-principal);
+    }
+
+    .boton-view-child {
+        @include boton2($color-principal);
+    }
+}

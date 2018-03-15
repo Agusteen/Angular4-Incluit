@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <form #autoForm="ngForm" (submit)="guardar(autoForm)">
+      <div class="form-group">
+        <label>Modelo</label>
+        <input type="text" #modelo="ngModel" name="modelo" id="modelo" class="form-control" autocomplete="off" required [(ngModel)]="auto.modelo" pattern="[A-Za-z]+">
+        <br>
+        <div class="alert alert-danger" *ngIf="modelo.invalid && modelo.dirty && modelo.touched">
+          <span *ngIf="modelo.errors.required">Campo no valido</span>
+          <span *ngIf="modelo.errors.pattern">Patron incorrecto</span>
+        </div>
+      </div>
+
+      <p>Es valido? {{modelo.valid}}</p>
+      <p>Tiene texto? {{modelo.dirty}}</p>
+      <p>Tocamos el campo? {{modelo.touched}}</p>
+
+      <button type="submit" [disabled]="autoForm.invalid" class="btn btn-success">Guardar</button>
+    </form>
+  </div>
+</div>
