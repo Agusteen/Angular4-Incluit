@@ -6,7 +6,7 @@
         <input type="text" #modelo="ngModel" name="modelo" id="modelo" class="form-control" autocomplete="off" required [(ngModel)]="auto.modelo" pattern="[A-Za-z]+">
         <br>
         <div class="alert alert-danger" *ngIf="modelo.invalid && modelo.dirty && modelo.touched">
-          <span *ngIf="modelo.errors.required">Campo no valido</span>
+          <span *ngIf="modelo.errors.required">Campo requerido</span>
           <span *ngIf="modelo.errors.pattern">Patron incorrecto</span>
         </div>
       </div>
@@ -16,6 +16,7 @@
       <p>Tocamos el campo? {{modelo.touched}}</p>
 
       <button type="submit" [disabled]="autoForm.invalid" class="btn btn-success">Guardar</button>
+      <button type="reset" class="btn btn-warning" (click)="limpiar()">Limpiar</button>
     </form>
   </div>
 </div>

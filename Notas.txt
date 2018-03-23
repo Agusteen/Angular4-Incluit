@@ -1,0 +1,47 @@
+﻿npm install --global @angular/cli
+
+Para reinstalar
+    npm unistall --global @angular/cli //xq tuvo problemas
+    npm cache clean --force //para borrar un directorio
+
+ng serve -o para abrir el navegador solo
+
+Con SASS --> ng new My_New_Project --style=sass
+ng new AngularRouting --routing
+ng generate module autos --routing
+
+------------------------------- VSC ------------------------------------
+
+Formatear codigo:
+
+On Windows Shift + Alt + F
+On Mac Shift + Option + F
+On Ubuntu Ctrl + Shift + I 
+
+-------------------------------------------------------------------
+
+.angular-cli-json: El prefi --> como tienen que empezar el nombre de las directivas, recomendable usar nuestro propia prefijo para poder identificarlo despúes.
+Y cambiar en tslint.json para que nos vaya corrijiendo el editor:
+"directive-selector": [
+      true,
+      "attribute",
+      "cap",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "cap",
+      "kebab-case"
+    ],
+
+---------------------------- Recomendaciones ----------------------------------------
+
+- Generar nuevos modulos para cada feature, y dentro de eso los componentes relaciondaos
+- Si hay componentes, servicios o modelos en comun, siempre crear una carpeta shared, ahi ponemos todo lo que tenga en comun nuestra app.
+- En Sass crear un archivo aparte solo para variables (siempre que sean globales)
+
+---------------------------- Routing ----------------------------------------
+
+ng serve --aot -> Evita lazyload. Para solucionar problema con loadChild no soportado por la version de angularCLI
+El WildCard siempre se carga al final.

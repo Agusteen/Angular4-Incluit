@@ -20,4 +20,8 @@ export class AutoRegisterComponent implements OnInit {
     console.log("Se guardo");    
   }
 
+  limpiar() {
+    this.auto = new Auto(null, null, null);
+  }
+
 }

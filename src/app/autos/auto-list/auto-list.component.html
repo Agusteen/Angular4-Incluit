@@ -2,10 +2,36 @@
     <div *ngFor="let auto of autos">
         <cap-auto-item [auto]="auto" (change)="onChange($event)"></cap-auto-item>
     </div>
-    
+
     <button class="boton-view-child btn btn-success" (click)="cambiarValores()">View Child</button>
-    
+
     <button class="boton-accion" (click)="ford.cambiarValores()">Actualizar ford</button>
-    
+
     <cap-auto-item [auto]="autoMalvado" (change)="onChange($event)" #ford></cap-auto-item>
 </div>
+<hr>
+
+<div class="container">
+    <h3>Autos del servicio</h3>
+
+    <div *ngFor="let auto of autosFromService">
+        <div class="card">
+            <div class="card-body">
+                {{auto.modelo}} {{auto.color}} {{auto.anio}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+        <h3>Data del servicio por HTTP</h3> 
+        
+            <div class="card">
+                <div class="card-body">
+                        <h5 class="card-title">{{itemsFromService.title}}</h5>
+                        <p class="card-text">{{itemsFromService.body}}</p>
+                    
+                </div>
+            </div>
+        
+    </div>

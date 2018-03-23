@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, AfterContentInit, OnDestroy, ViewChild } from '@angular/core';
 import { Auto } from '../auto.model';
 import { AutoItemComponent } from '../auto-item/auto-item.component';
+import { AutosService } from '../autos.service';
 
 @Component({
   selector: 'cap-auto-list',
@@ -18,7 +19,11 @@ export class AutoListComponent implements OnInit, OnChanges, OnDestroy, AfterCon
   new Auto('Bora', 2000, 'Rojo'),
   new Auto('Uno', 2000, 'Blanco')];
 
+
+
   autoMalvado: Auto;
+  autosFromService: Auto[];
+  itemsFromService: Array<Object>;
 
   onChange(mensaje: string) {
     console.log(mensaje);
@@ -28,7 +33,7 @@ export class AutoListComponent implements OnInit, OnChanges, OnDestroy, AfterCon
     //this.autoItemComp.cambiarValores();
   }
 
-  constructor() {
+  constructor(public autoService: AutosService) {
     console.log('constructor');
   }
 
@@ -39,6 +44,14 @@ export class AutoListComponent implements OnInit, OnChanges, OnDestroy, AfterCon
   ngOnInit() {
     this.autoMalvado = new Auto('Fiesta', 2017, 'azul');
     console.log('segundo');
+    this.autosFromService = this.autoService.getListaAutos();
+
+    this.autoService.getListaAutosHttp()
+    .subscribe(data => {
+      console.log(data); 
+      this.itemsFromService = data;  
+    })
+    
   }
 
   ngAfterContentInit() {
